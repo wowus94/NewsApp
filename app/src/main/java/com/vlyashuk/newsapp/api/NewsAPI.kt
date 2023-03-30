@@ -1,6 +1,6 @@
 package com.vlyashuk.newsapp.api
 
-import com.vlyashuk.newsapp.NewsResponse
+import com.vlyashuk.newsapp.models.NewsResponse
 import com.vlyashuk.newsapp.utils.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

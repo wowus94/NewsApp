@@ -1,4 +1,6 @@
-package com.vlyashuk.newsapp
+package com.vlyashuk.newsapp.models
+
+import com.vlyashuk.newsapp.models.Article
 
 data class NewsResponse(
     val articles: List<Article>,
