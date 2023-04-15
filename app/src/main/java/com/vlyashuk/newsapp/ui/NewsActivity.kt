@@ -3,12 +3,8 @@ package com.vlyashuk.newsapp.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vlyashuk.newsapp.R
 import com.vlyashuk.newsapp.databinding.ActivityNewsBinding
 import com.vlyashuk.newsapp.db.ArticleDatabase
@@ -26,10 +22,11 @@ class NewsActivity : AppCompatActivity() {
 
         val newsRepository = NewsRepository(ArticleDatabase(this))
         val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
-        viewModel = ViewModelProvider(this, viewModelProviderFactory)[NewsViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
+
         binding.bottomNavigationView.setupWithNavController(navHostFragment.navController)
 
     }
