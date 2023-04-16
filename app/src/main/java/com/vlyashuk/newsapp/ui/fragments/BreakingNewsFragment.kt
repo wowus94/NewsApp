@@ -26,7 +26,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
     private var _binding: FragmentBreakingNewsBinding? = null
     private val binding: FragmentBreakingNewsBinding
-        get() = _binding ?: throw RuntimeException("FragmentHotelDetailBinding is null")
+        get() = _binding ?: throw RuntimeException("FragmentBreakingNewsBinding is null")
 
     override fun onCreateView(
         inflater: LayoutInflater,
