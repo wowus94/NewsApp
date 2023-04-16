@@ -14,6 +14,8 @@ import com.vlyashuk.newsapp.models.Article
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
+    private var onItemClickListener: ((Article) -> Unit)? = null
+
     inner class ArticleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private val differCallback = object : DiffUtil.ItemCallback<Article>() {
@@ -57,16 +59,16 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
             tvTitle.text = article.title
             tvDescription.text = article.description
             tvPublishedAt.text = article.publishedAt
-            onItemClickListener?.let {
-                it(article)
+
+            setOnClickListener {
+                onItemClickListener?.let {
+                    it(article)
+                }
             }
         }
     }
 
-    private var onItemClickListener: ((Article) -> Unit)? = null
-
     fun setOnItemClickListener(listener: (Article) -> Unit) {
         onItemClickListener = listener
     }
-
 }
